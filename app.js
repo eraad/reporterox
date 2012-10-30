@@ -6,8 +6,11 @@ app.get('/', function(req, res){
     var URL = "http://services.extra.ec/WsReporteroX/ws/ws.aspx?operation=semana";
     superagent
         .get(URL)
-        .end(function(data) {
-            res.send(data);
+        .set('Accept', 'application/json')
+        .end(function(response) {
+            if (response.ok) {
+                res.send(data);
+            }
         });
 });
 
