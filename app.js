@@ -9,12 +9,12 @@ app.get('/', function(req, res){
         .set('Accept', 'application/json')
         .end(function(response) {
             if (response.ok) {
-                res.send(data);
+                res.send(JSON.stringify(response.body));
             }
         });
 });
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-  console.log("Escucho en el puerto" + port);
+  console.log("Escucho en el puerto " + port);
 });
