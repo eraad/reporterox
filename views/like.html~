@@ -39,10 +39,10 @@
 
     <div id="SliderName_2">
 
-      <img width="695" height="327" src="/images/placeholder-portada2.jpg"/>
+      <img src="/images/placeholder-portada2.jpg"/>
       <div class="SliderName_2Description"><strong>Helicoptero ataca edificio</strong></br>Los transeuntes corrieron por sus vidas.</div>
 
-      <img width="695" height="327" src="/images/placeholder-portada.png"/>
+      <img src="/images/placeholder-portada.png"/>
       <div class="SliderName_2Description"><strong>La policia hace de las suyas</strong></br>Detienen y liberan al prisionero.</div>
 
       <div id="SliderNameNavigation_2"></div>
