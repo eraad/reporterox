@@ -1,0 +1,307 @@
+body {
+    font-family: arial, sans;
+}
+
+.no-like {
+    padding: 0px;
+    margin: 0px;
+    background-image: url(/images/bg-nolike-reporterox.png);
+    width: 800px;
+    height: 780px;
+    z-index: 99;
+}
+
+.like {
+    padding: 0px;
+    margin: 0px;
+    background-image: url(/images/bg-like-reporterox.png);
+    width: 800px;
+    height: 900px;
+    z-index: 99;
+}
+
+#container {
+    width: 695px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+/**
+Ubicacion del plugin Me Gusta
+**/
+.fb-like {
+    margin-top: 275px;
+    margin-left: 170px;
+    transform: scale(2.0);
+    -ms-transform: scale(2.0);
+    -webkit-transform: scale(2.0);
+    -o-transform: scale(2.0);
+    -moz-transform: scale(2.0);
+    transform-origin: top left;
+    -ms-transform-origin: top left;
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -webkit-transform-origin: top left;
+}
+
+/**
+Esconde la caja de comentarios del plugin Me Gusta
+**/
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
+    display: none !important;
+}
+
+/**
+Estilos variados
+**/
+.center {
+    text-align: center;
+}
+
+.center-image {
+    display: block;
+    margin: 0 auto;
+}
+
+/*
+.transparent {
+    zoom: 1;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+*/
+
+.transparent {
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0) transparent;
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+.extra-dark {
+    background-color: #2e2e2e;
+}
+
+/**
+Componentes de la pagina
+**/
+#header {
+    color: white;
+    height: 150px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+#logo {
+    position: absolute;
+    top: 73px;
+    left: 85px;
+    z-index: 100;
+}
+
+#decoracion-header {
+    position: absolute;
+    top: 40px;
+    left: 53px;
+}
+
+#navbar {
+    background-color: #2e2e2e;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    border-bottom: 3px solid #eb1b24;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#navbar ul li {
+    float: right;
+    padding: 5px 5px 5px 5px;
+    margin: 0px 10px 0px 10px;
+    font-family: arial;
+    font-size: 0.8em;
+    color: white;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#navbar ul li:hover {
+    background-color: #eb1b24;
+}
+
+#navbar ul li.current {
+    background-color: #eb1b24;
+}
+
+#date {
+    padding: 10px 0px 0px 9px;
+}
+
+#date ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#date ul li {
+    float: left;
+    margin: 0px 10px 0px 5px;
+    font-size: 0.45em;
+}
+
+#date ul li span {
+    margin-bottom: 5px;
+}
+
+.st_sharethis_custom{
+    background: url(/images/sharethis-button.png) no-repeat scroll left top transparent;
+    padding:0px 58px 58px 0;
+}
+
+#boton-participa-header {
+    margin-top: 10px;
+    margin-right: 70px;
+}
+
+#top-button {
+    text-align: right;
+}
+
+#countdown ul {
+    list-style-type: none;
+    margin-left: 320px;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+#countdown ul li {
+    padding: 5px;
+    float: left;
+}
+
+#countdown ul li.gradient {
+    background: #fff; /* for non-css3 browsers */
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#a8a9ad'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#a8a9ad)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #fff,  #a8a9ad); /* for firefox 3.6+ */
+    color: black;
+    border-right: solid 1px #999a9e;
+}
+
+#countdown ul li.concurso {
+    background-color: #feee15;
+    color: #eb1b24;
+    -moz-border-radius-right: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+}
+
+#countdown ul li.faltan {
+    background-color: #eb1b24;
+    color: white;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+}
+
+.SliderName_2Description {
+    color: white;
+    padding: 10px 10px 10px 50px;
+    font-size: 0.8em;
+}
+
+.SliderName_2Description strong {
+    color: #eb1b24;
+}
+
+#footer {
+    background: url(/images/leather_texture.jpg) no-repeat;
+    border-top: 1px solid white;
+    height: 350px;
+}
+
+#footer-expectador {
+    margin-top: 30px;
+}
+
+#footer-sidebar {
+    width: 435px;
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    padding: 20px;
+    float: right;
+    margin-top: 20px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+}
+
+#footer-widgets {
+    float: left;
+    margin-top: 30px;
+    margin-left: 63px;
+}
+
+#footer-sidebar div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#footer-sidebar div ul li {
+    float: left;
+    padding: 10px;
+}
+
+#footer-sidebar div ul li img {
+    margin-top: 15px;
+}
+.float-left {
+    float: left;
+}
+
+.standard-padding {
+    padding: 10px 0px 10px 0px;
+}
+
+.image-padding {
+    vertical-align:middle;
+    margin: 0px 5px 0px 0px;
+}
+
+.image-margin-left {
+    margin-left: 20px;
+}
+
+#footer-sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+#share-label {
+    color: white;
+    font-size: 0.5em;
+    padding-top: 35px;
+}
+
+.padding-top {
+    padding-top: 15px;
+}

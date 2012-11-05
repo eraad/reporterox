@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Cerebrum S.A.">
+<meta name="description" content="Reportero X de Diario Extra en Facebook.">
+<title>Reportero X en Facebook</title>
+<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="all"/>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="/javascript/app.js"></script>
+<script src="/javascript/sliderman.1.3.7.js"></script>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script>
+  stLight.options({publisher: "bc63d3cd-cd49-4230-a274-6fec6aacd6be"});
+  stButtons.getCount("http://www.facebook.com/datilmedia/app_323755004379477","facebook",document.getElementById('fbcount'));
+</script>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=323755004379477";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+{% block content %} {% endblock %}
+</body>
+</html>

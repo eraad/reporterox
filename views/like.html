@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="like">
+
+  <div id="container">
+
+    <div id="header" class="extra-dark">
+      <div>
+        <div id="date">
+          <ul>
+            <li><img src="/images/icono-extra.png"/></li>
+            <li>Guayaquil, {{ currentDate }}</li>
+          </ul>
+        </div>
+        <div id="countdown">
+          <ul>
+            <li class="faltan">FALTAN</li><li class="gradient">{{ countdown.days }}d</li><li class="gradient">{{ countdown.hours }}h</li><li class="gradient">{{ countdown.minutes }}'</li><li class="concurso">PARA EL CONCURSO</li>
+          </ul>
+        </div>
+      </div>
+      <img id="decoracion-header" src="/images/decoracion-header.png"/>
+      <img id="logo" src="/images/logo-reporterox.png"/>
+      <div id="top-button">
+        <a href="http://services.extra.ec/ReporteroX/" target="_blank">
+          <img id="boton-participa-header" src="/images/boton-participa-header.png"/>
+        </a>
+      </div>
+    </div>
+
+    <div id="navbar">
+      <ul>
+        <li><a href="#">GANADORES</a></li>
+        <li><a href="#">MAS NOTICIAS</a></li>
+        <li><a href="#">LAS MAS LEIDAS</a></li>
+        <li class="current">INICIO</li>
+      </ul>
+    </div>
+
+    <div id="SliderName_2">
+
+      <img src="/images/placeholder-portada2.jpg"/>
+      <div class="SliderName_2Description"><strong>Helicoptero ataca edificio</strong></br>Los transeuntes corrieron por sus vidas.</div>
+
+      <img src="/images/placeholder-portada.png"/>
+      <div class="SliderName_2Description"><strong>La policia hace de las suyas</strong></br>Detienen y liberan al prisionero.</div>
+
+      <div id="SliderNameNavigation_2"></div>
+    </div>
+
+    <div id="footer">
+      <div>
+        <img class="center-image" id="footer-expectador" src="/images/footer-expectador.png"/>
+      </div>
+
+      <div id="footer-widgets">
+        <div>
+          <a href="http://services.extra.ec/ReporteroX/" target="_blank">
+            <img src="/images/boton-participa-footer.png"/>
+          </a>
+        </div>
+        <div class="center padding-top">
+          <span class='st_sharethis_custom displayText='ShareThis'></span>
+          <p id="share-label">COMPARTIR</p>
+        </div>
+      </div>
+
+
+      <div id="footer-sidebar" class="transparent">
+        <div>
+          <p>Forma parte del mundo informativo de Diario EXTRA y comparte con nosotros los hechos noticiosos que se generan cada minuto en las calles o cualquier parte de tu ciudad. Llena este formulario con tus fotos e informaci&oacute;n, y nosotros lo publicaremos en el diario. Tambi&eacute;n puedes enviarlos desde tu celular o computadora a:</p>
+        </div>
+        <div class="standard-padding">
+          <div class="float-left"><a href="mailto:reporterox@granasa.com.ec" target="_blank"><img class="image-padding" src="/images/boton-mail.png"/><span>reporterox@granasa.com.ec</span></a></div>
+          <div class="float-left"><a href="https://twitter.com/diarioextraec" target="_blank"><img class="image-padding image-margin-left"src="/images/boton-twitter.png"/><span>@DiarioExtraEc</span></a></div>
+        </div>
+        <div class="float-left standard-padding">
+          No olvides adjuntar tus datos para que puedas participar en el concurso.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
