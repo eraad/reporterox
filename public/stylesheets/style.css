@@ -71,6 +71,49 @@ Estilos variados
 }
 */
 
+.slides_container {
+    width:695px;
+    overflow:hidden;
+    position:relative;
+    display:none;
+    padding: 0;
+    margin: 0;
+}
+
+.slides_container div.slide {
+    width: 695px;
+    height: 327px;
+    overflow: hidden;
+    display: block;
+}
+
+.pagination {
+    width: 695px;
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+.pagination li {
+    float:left;
+    margin:0 1px;
+    list-style:none;
+}
+
+.pagination li a {
+    display:block;
+    width:12px;
+    height:0;
+    padding-top:12px;
+    background-image:url(../images/pagination.png);
+    background-position:0 0;
+    float:left;
+    overflow:hidden;
+}
+
+.pagination li.current a {
+        background-position:0 -12px;
+}
+
 .transparent {
     /* Fallback for web browsers that doesn't support RGBa */
     background: rgb(0, 0, 0) transparent;
@@ -84,6 +127,10 @@ Estilos variados
 
 .extra-dark {
     background-color: #2e2e2e;
+}
+
+.extra-red {
+    color: #eb1b24;
 }
 
 /**
@@ -219,16 +266,6 @@ Componentes de la pagina
     border-top-left-radius: 10px;
 }
 
-.SliderName_2Description {
-    color: white;
-    padding: 10px 10px 10px 50px;
-    font-size: 0.8em;
-}
-
-.SliderName_2Description strong {
-    color: #eb1b24;
-}
-
 #footer {
     background: url(/images/leather_texture.jpg) no-repeat;
     border-top: 1px solid white;
@@ -304,4 +341,112 @@ Componentes de la pagina
 
 .padding-top {
     padding-top: 15px;
+}
+
+.masleidas {
+    height: 700px;
+    background-color: white;
+    padding: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.inside-container {
+    background-color: #b6b8c5;
+    margin-top: 40px;
+    padding: 0px;
+}
+
+.inside-header img {
+    display: block;
+    position: relative;
+    left: -14px;
+    top: 0px;
+}
+
+.fotogaleria {
+    font-size: 0.8em;
+    padding: 0px;
+    margin: 0px;
+    clear: both;
+    height: 600px;
+}
+
+.fotogaleria-item {
+    float: left;
+    margin: 8px;
+}
+.fotogaleria-item-dim {
+    width: 200px;
+    height: 150px;
+}
+
+.fotogaleria-image {
+    overflow: hidden;
+}
+
+.white-bg {
+    background-color: white;
+}
+
+.fotogaleria-padding {
+    padding: 3px 10px 3px 10px;
+}
+
+.sidebar {
+    width: 335px;
+    height: 239px;
+    padding: 10px;
+}
+
+.etiqueta-amarilla-noticias {
+    text-align: center;
+    position: relative;
+    padding-top: 4px;
+    bottom: 12px;
+    left: 100px;
+    width: 90px;
+    height: 24px;
+    margin: 0px;
+    background-image: url(/images/etiqueta-amarilla-noticias.png);
+    background-repeat: no-repeat;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.ganadores-imagen {
+    width: 340px;
+    height: 259px;
+}
+
+.ganadores div {
+    float: left;
+}
+
+.ganadores-footer {
+    border-top: 2px solid #fded10;
+    width: 655px;
+    height: 400px;
+    background-image: url(/images/leather_texture.jpg);
+    background-repeat: repeat-x;
+    text-align: center;
+    padding: 20px;
+}
+
+.galeria-premios div {
+    background: black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.ganadores-testigo-button {
+    padding-top: 20px;
+    text-align: center;
 }

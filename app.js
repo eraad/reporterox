@@ -2,56 +2,77 @@ var superagent = require('superagent');
 var facebookSignedRequest = require('./lib/facebookSignedRequest');
 var countdown = require('./lib/countdown.js');
 var cons = require('consolidate');
-var nconf = require('nconf');
+var config = require('./config');
 var express = require('express');
 var swig = require('swig');
 var moment = require('moment');
+var async = require('async');
 var app = express();
 
-/**
- * Es necesario validar que app es el objeto adecuado para pasar
- * valores de configuracion al objeto req.
- */
-nconf.use('file', { file: './config.json' });
-app.set('facebookSecret', nconf.get('facebook:secret'));
+// all environments
+app.set('facebookSecret', config.config.facebookDev.secret);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
 
 app.engine('html', cons.swig);
 swig.init({
     root: 'views',
-    allowErrors: true
+    allowErrors: true,
+    filters: require('./myfilters')
 });
-app.set('view engine', 'html');
-app.set('views', __dirname + '/views');
 
 app.use(express.bodyParser());
 app.use(express.static(__dirname + '/public'));
 
 app.locals.currentDate = moment().format('D \\de MMMM \\de YYYY');
-app.locals.countdown = countdown.countdown();
+app.locals.urlMicrositio = config.config.links.urlMicrositio;
 
-var URL = "http://services.extra.ec/WsReporteroX/ws/ws.aspx?operation=semana";
+var requestApiData = function (url, query, callback) {
+    var apiRequest = superagent
+            .get(url)
+            .set('Accept', 'application/json');
 
-var requestApiData = function (url, callback) {
-    superagent
-        .get(URL)
-        .set('Accept', 'application/json')
-        .end(function(response) {
-            if (response.ok) {
-                callback(response.body);
-            }
-        });
+    async.forEach(query, function(item, callback){
+        apiRequest.query(item);
+    }, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+    apiRequest.end(function(response) {
+        if (response.ok) {
+            callback(response.body);
+        }
+    });
 };
+
+var fechaConcurso = function(req, res, next) {
+    var url = config.config.webServices.proximoConcurso.url;
+    requestApiData(url, [], function(response){
+        if (response) {
+            req.fechaConcurso = response.RESPUESTA[0];
+            next();
+        }
+    });
+};
+
+var middleware = [fechaConcurso];
 
 var homepage = function(req, res) {
     var signedRequest = req.body.signed_request;
     var facebookSecret = app.get('facebookSecret');
     var decodedSignedRequest = facebookSignedRequest.decode(signedRequest, facebookSecret);
-    console.log(decodedSignedRequest);
     var noLikeTemplate = 'no-like.html';
     var likeTemplate = 'like.html';
-    requestApiData(URL, function(data) {
+
+    var url = config.config.webServices.fotosPortada.url;
+    var params = config.config.webServices.fotosPortada.params;
+    requestApiData(url, params, function(data) {
         if (decodedSignedRequest.page.liked) {
             res.render(likeTemplate, {
+                fotosPortada: data.RESPUESTA,
+                fechaConcurso: req.fechaConcurso
             });
         }
         res.render(noLikeTemplate, {
@@ -59,7 +80,54 @@ var homepage = function(req, res) {
     });
 };
 
-app.post('/', homepage);
+var homepageGet = function(req, res) {
+    var likeTemplate = 'like.html';
+    var url = config.config.webServices.fotosPortada.url;
+    var params = config.config.webServices.fotosPortada.params;
+    requestApiData(url, params, function(data) {
+        res.render(likeTemplate, {
+            fotosPortada: data.RESPUESTA,
+            fechaConcurso: req.fechaConcurso
+        });
+    });
+};
+
+var masleidas = function(req, res) {
+    var url = config.config.webServices.MasPopulares.url;
+    var params = config.config.webServices.MasPopulares.params;
+    requestApiData(url, params, function(data) {
+        res.render('masleidas.html', {
+            masPopulares: data.RESPUESTA,
+            fechaConcurso: req.fechaConcurso
+        });
+    });
+};
+
+var ganadores = function(req, res) {
+    res.render('ganadores.html', {
+        fechaConcurso: req.fechaConcurso
+    });
+};
+
+var masnoticias = function(req, res) {
+    var url = config.config.webServices.NoticiasPorPagina.url;
+    var params = config.config.webServices.NoticiasPorPagina.params;
+    if (req.query.page) {
+        params.page = req.query.page;
+    }
+    requestApiData(url, params, function(data) {
+        res.render('masnoticias.html', {
+            noticias: data.RESPUESTA,
+            fechaConcurso: req.fechaConcurso
+        });
+    });
+};
+
+app.post('/', middleware, homepage);
+app.get('/', middleware, homepageGet);
+app.get('/masleidas', middleware, masleidas);
+app.get('/masnoticias', middleware, masnoticias);
+app.get('/ganadores', middleware, ganadores);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {

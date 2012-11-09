@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="like">
+
+  <div id="container">
+
+    <div id="header" class="extra-dark">
+      <div>
+        <div id="date">
+          <ul>
+            <li><img src="/images/icono-extra.png"/></li>
+            <li>Guayaquil, {{ currentDate }}</li>
+          </ul>
+        </div>
+        <div id="countdown">
+          <ul>
+            <li class="faltan">FALTAN</li><li class="gradient">{{ fechaConcurso.DiasFaltantes }}d</li><li class="gradient">{{ fechaConcurso.HorasFaltantes }}h</li><li class="gradient">{{ fechaConcurso.MinutosFaltantes }}'</li><li class="concurso">PARA EL CONCURSO</li>
+          </ul>
+        </div>
+      </div>
+      <img id="decoracion-header" src="/images/decoracion-header.png"/>
+      <img id="logo" src="/images/logo-reporterox.png"/>
+      <div id="top-button">
+        <a href="{{ urlMicrositio }}" target="_blank">
+          <img id="boton-participa-header" src="/images/boton-participa-header.png"/>
+        </a>
+      </div>
+    </div>
+
+    <div id="navbar">
+      <ul>
+        <li><a href="/ganadores">GANADORES</a></li>
+        <li class="current"><a href="/masnoticias">MAS NOTICIAS</a></li>
+        <li><a href="/masleidas">LAS MAS LEIDAS</a></li>
+        <li><a href="/">INICIO</a></li>
+      </ul>
+    </div>
+    <div class="inside-container">
+      <div class="inside-header">
+        <img src="/images/header-todaslasnoticias.png"/>
+      </div>
+      <div class="fotogaleria">
+        {% for item in masPopulares %}
+        <div class="fotogaleria-item fotogaleria-item-dim">
+          <div class="fotogaleria-image fotogaleria-item-dim"><img width="200" height="150" src="{{ item.FotoPortada }}"/></div>
+          <div class="extra-red white-bg fotogaleria-padding"><strong>{{ item.Titulo }}</strong></div>
+          <div class="white-bg fotogaleria-padding">{{ item.NoticiaTexto | truncate(75) }}</div>
+          <div>{{ item.Visitas  }}</div>
+        </div>
+        {% endfor %}
+        <div style="clear:both"></div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

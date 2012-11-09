@@ -15,14 +15,14 @@
         </div>
         <div id="countdown">
           <ul>
-            <li class="faltan">FALTAN</li><li class="gradient">{{ countdown.days }}d</li><li class="gradient">{{ countdown.hours }}h</li><li class="gradient">{{ countdown.minutes }}'</li><li class="concurso">PARA EL CONCURSO</li>
+            <li class="faltan">FALTAN</li><li class="gradient">{{ fechaConcurso.DiasFaltantes }}d</li><li class="gradient">{{ fechaConcurso.HorasFaltantes }}h</li><li class="gradient">{{ fechaConcurso.MinutosFaltantes }}'</li><li class="concurso">PARA EL CONCURSO</li>
           </ul>
         </div>
       </div>
       <img id="decoracion-header" src="/images/decoracion-header.png"/>
       <img id="logo" src="/images/logo-reporterox.png"/>
       <div id="top-button">
-        <a href="http://services.extra.ec/ReporteroX/" target="_blank">
+        <a href="{{ urlMicrositio }}" target="_blank">
           <img id="boton-participa-header" src="/images/boton-participa-header.png"/>
         </a>
       </div>
@@ -30,22 +30,21 @@
 
     <div id="navbar">
       <ul>
-        <li><a href="#">GANADORES</a></li>
-        <li><a href="#">MAS NOTICIAS</a></li>
-        <li><a href="#">LAS MAS LEIDAS</a></li>
-        <li class="current">INICIO</li>
+        <li><a href="/ganadores">GANADORES</a></li>
+        <li><a href="/masnoticias">MAS NOTICIAS</a></li>
+        <li><a href="/masleidas">LAS MAS LEIDAS</a></li>
+        <li class="current"><a href="/">INICIO</a></li>
       </ul>
     </div>
 
-    <div id="SliderName_2">
-
-      <img width="695" height="327" src="/images/placeholder-portada2.jpg"/>
-      <div class="SliderName_2Description"><strong>Helicoptero ataca edificio</strong></br>Los transeuntes corrieron por sus vidas.</div>
-
-      <img width="695" height="327" src="/images/placeholder-portada.png"/>
-      <div class="SliderName_2Description"><strong>La policia hace de las suyas</strong></br>Detienen y liberan al prisionero.</div>
-
-      <div id="SliderNameNavigation_2"></div>
+    <div id="slides">
+      <div class="slides_container">
+           {% for fotoPortada in fotosPortada %}
+           <div class="slide">
+             <img src="{{ fotoPortada.Url  }}"/>
+           </div>
+           {% endfor %}
+      </div>
     </div>
 
     <div id="footer">
@@ -55,7 +54,7 @@
 
       <div id="footer-widgets">
         <div>
-          <a href="http://services.extra.ec/ReporteroX/" target="_blank">
+          <a href="{{ urlMicrositio }}" target="_blank">
             <img src="/images/boton-participa-footer.png"/>
           </a>
         </div>

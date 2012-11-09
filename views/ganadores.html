@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="like">
+
+  <div id="container">
+
+    <div id="header" class="extra-dark">
+      <div>
+        <div id="date">
+          <ul>
+            <li><img src="/images/icono-extra.png"/></li>
+            <li>Guayaquil, {{ currentDate }}</li>
+          </ul>
+        </div>
+        <div id="countdown">
+          <ul>
+            <li class="faltan">FALTAN</li><li class="gradient">{{ fechaConcurso.DiasFaltantes }}d</li><li class="gradient">{{ fechaConcurso.HorasFaltantes }}h</li><li class="gradient">{{ fechaConcurso.MinutosFaltantes }}'</li><li class="concurso">PARA EL CONCURSO</li>
+          </ul>
+        </div>
+      </div>
+      <img id="decoracion-header" src="/images/decoracion-header.png"/>
+      <img id="logo" src="/images/logo-reporterox.png"/>
+      <div id="top-button">
+        <a href="{{ urlMicrositio }}" target="_blank">
+          <img id="boton-participa-header" src="/images/boton-participa-header.png"/>
+        </a>
+      </div>
+    </div>
+
+    <div id="navbar">
+      <ul>
+        <li class="current"><a href="/ganadores">GANADORES</a></li>
+        <li><a href="/masnoticias">MAS NOTICIAS</a></li>
+        <li><a href="/masleidas">LAS MAS LEIDAS</a></li>
+        <li><a href="/">INICIO</a></li>
+      </ul>
+    </div>
+    <div class="inside-container">
+
+      <div class="inside-header">
+        <img src="/images/header-ganadores.png"/>
+      </div>
+
+      <div class="ganadores">
+
+        <div class="ganadores-imagen">
+          <img src="/images/ganadores.jpg"/>
+        </div>
+
+        <div class="sidebar white-bg">
+          <h2 class="extra-red">&#33;Reporteros X, felices y ganadores!</h2>
+          <p>Los tres ganadores expresaron que s&oacute;lo aprovecharon la oportunidad, enviaron la foto y luego las vieron publicadas en el diario, viendo que su esfuerzo vali&oacute; la pena.</p>
+        </div>
+
+        <div class="ganadores-footer">
+          <img src="/images/participa-gana.png"/>
+          <div class="galeria-premios">
+            <div><img src="/images/tv.png"/></div>
+            <div><img src="/images/hamaca.png"/></div>
+            <div><img src="/images/licuadora.png"/></div>
+          </div>
+
+          <div class="ganadores-testigo-button">
+            <a href="{{ urlMicrositio }}" target="_blank">
+              <img src="/images/boton-participa-footer.png"/>
+            </a>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
