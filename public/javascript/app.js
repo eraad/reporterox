@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     $(".fancybox").fancybox({
         autoSize: false,
-        height: 300,
+        height: 350,
         arrows: false,
         padding: 5
     });
