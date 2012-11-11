@@ -8,5 +8,9 @@ $(document).ready(function() {
     });
 
     $(".fancybox").fancybox({
+        autoSize: false,
+        height: 300,
+        arrows: false,
+        padding: 5
     });
 });

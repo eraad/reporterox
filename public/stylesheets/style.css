@@ -494,18 +494,29 @@ Componentes de la pagina
     text-shadow:none;
 }
 
+div.detalle-noticia {
+    width: 100%;
+}
+
 div.detalle-noticia-item {
     padding: 0;
     margin: 0;
     float: left;
+}
+
+div.detalle-noticia-foto {
     overflow: hidden;
     width: 300px;
-    height: 400px;
+}
+
+div.detalle-noticia-data {
+    width: 400px;
 }
 
 div.detalle-noticia-item h3,
 div.detalle-noticia-item p,
-div.addthis_toolbox {
+div.addthis_toolbox,
+div.detalle-noticia-item table {
     margin-left: 20px;
     padding: 0px
 }
@@ -514,4 +525,25 @@ div.addthis_toolbox {
     display: block;
     position: relative;
     left: 100px;
+}
+
+table.noticia-detalle-data {
+    width: 100%;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 0px;
+    margin: 0px;
+}
+
+table.noticia-detalle-data tr td.leido {
+    padding: 5px;
+    width: 40%;
+    border-right: 1px solid black;
+}
+
+table.noticia-detalle-data tr td.publicado {
+    padding: 5px;
+    width: 60%;
 }

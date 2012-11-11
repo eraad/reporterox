@@ -2,11 +2,18 @@
 
 {% block content %}
 <div class="detalle-noticia">
-  <div class="detalle-noticia-item">
-    <img src="{{ noticia.FotoPortada }}"/>
+  <div class="detalle-noticia-item detalle-noticia-foto">
+    <img width="300" height="225" src="{{ noticia.FotoPortada }}"/>
+    <span>{{ noticia.Nombre }} {{ noticia.Apellidp }} </br>CI {{ noticia.Cedula }}</span>
   </div>
-  <div class="detalle-noticia-item">
+  <div class="detalle-noticia-item detalle-noticia-data">
     <h3 class="extra-red">{{ noticia.Titulo }}</h3>
+    <table class="noticia-detalle-data">
+      <tr>
+        <td class="leido">Le&iacute;do: {{ noticia.Visitas }} veces</td>
+        <td class="publicado">Publicado: {{ noticia.FechaCreacion }}</td>
+      </tr>
+    </table>
     <p>{{ noticia.NoticiaTexto  }}</p>
     <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style"
