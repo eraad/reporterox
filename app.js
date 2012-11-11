@@ -150,12 +150,20 @@ var noticia = function(req, res) {
     console.log(req.query.id);
 };
 
+var appInstalled = function(req, res) {
+    res.render('appinstalled.html', {
+        profileUrl: config.config.facebook.profileUrl,
+        appName: config.config.title
+    });
+}
+
 app.post('/', middleware, homepage);
 app.get('/', middleware, homepageGet);
 app.get('/masleidas', middleware, masleidas);
 app.get('/masnoticias', middleware, masnoticias);
 app.get('/ganadores', middleware, ganadores);
 app.get('/noticia', middleware, noticia);
+app.get('/appinstalled', appInstalled);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
