@@ -153,7 +153,7 @@ var noticia = function(req, res) {
 var appInstalled = function(req, res) {
     res.render('appinstalled.html', {
         profileUrl: config.config.facebook.profileUrl,
-        appName: config.config.title
+        appName: config.config.name
     });
 }
 
