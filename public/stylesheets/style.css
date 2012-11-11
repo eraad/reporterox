@@ -1,5 +1,6 @@
 body {
     font-family: arial, sans;
+    overflow-x: hidden;
 }
 
 .no-like {
@@ -29,7 +30,7 @@ body {
 /**
 Ubicacion del plugin Me Gusta
 **/
-.fb-like {
+.no-like-button {
     margin-top: 275px;
     margin-left: 170px;
     transform: scale(2.0);
@@ -381,7 +382,7 @@ Componentes de la pagina
 
 .fotogaleria-item {
     float: left;
-    margin: 8px;
+    margin: 8px 10px 100px 10px;
 }
 .fotogaleria-item-dim {
     width: 200px;
@@ -397,7 +398,7 @@ Componentes de la pagina
 }
 
 .fotogaleria-padding {
-    padding: 3px 10px 3px 10px;
+    padding: 5px;
 }
 
 .sidebar {
@@ -409,7 +410,8 @@ Componentes de la pagina
 .etiqueta-amarilla-noticias {
     text-align: center;
     position: relative;
-    padding-top: 4px;
+    padding-top: 6px;
+    padding-left: 6px;
     bottom: 12px;
     left: 100px;
     width: 90px;
@@ -417,7 +419,7 @@ Componentes de la pagina
     margin: 0px;
     background-image: url(/images/etiqueta-amarilla-noticias.png);
     background-repeat: no-repeat;
-    font-size: 1.25em;
+    font-size: 0.8em;
     font-weight: bold;
 }
 
@@ -432,21 +434,84 @@ Componentes de la pagina
 
 .ganadores-footer {
     border-top: 2px solid #fded10;
-    width: 655px;
-    height: 400px;
+    width: 685px;
+    height: 480px;
     background-image: url(/images/leather_texture.jpg);
     background-repeat: repeat-x;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
+    text-align: center;
 }
 
 .galeria-premios div {
-    background: black;
     margin: 5px;
     padding: 5px;
 }
 
 .ganadores-testigo-button {
-    padding-top: 20px;
     text-align: center;
+    margin: 40px 0px 10px 270px;
+    padding: 20px;
+}
+
+.caja-amarilla-premios {
+    position: relative;
+    background-image: url(/images/caja-amarilla-ganadores.png);
+    background-repeat: no-repeat;
+    width: 122px;
+    height: 31px;
+    padding: 5px;
+    bottom: -20px;
+    left: 30px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.black-background {
+    width: 200px;
+    height: 170px;
+    background-color: black;
+}
+
+.participa-gana {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.caption {
+    z-index:500;
+    position:absolute;
+
+    left:0;
+    height:40px;
+    padding:5px 20px 0 20px;
+    background:#000;
+    background:rgba(0,0,0,.5);
+    width:695px;
+    font-size:1em;
+    line-height:0;
+    color:#fff;
+    text-shadow:none;
+}
+
+div.detalle-noticia-item {
+    padding: 0;
+    margin: 0;
+    float: left;
+    overflow: hidden;
+    width: 300px;
+    height: 400px;
+}
+
+div.detalle-noticia-item h3,
+div.detalle-noticia-item p,
+div.addthis_toolbox {
+    margin-left: 20px;
+    padding: 0px
+}
+
+.noticia-like-button {
+    display: block;
+    position: relative;
+    left: 100px;
 }

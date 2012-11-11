@@ -10,7 +10,6 @@ var async = require('async');
 var app = express();
 
 // all environments
-app.set('facebookSecret', config.config.facebookDev.secret);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
@@ -19,6 +18,16 @@ swig.init({
     root: 'views',
     allowErrors: true,
     filters: require('./myfilters')
+});
+
+// development only
+app.configure('development', function(){
+    app.set('facebookSecret', config.config.facebookDev.secret);
+});
+
+// production only
+app.configure('production', function(){
+    app.set('facebookSecret', config.config.facebook.secret);
 });
 
 app.use(express.bodyParser());
@@ -117,10 +126,28 @@ var masnoticias = function(req, res) {
     }
     requestApiData(url, params, function(data) {
         res.render('masnoticias.html', {
-            noticias: data.RESPUESTA,
+            masPopulares: data.RESPUESTA,
             fechaConcurso: req.fechaConcurso
         });
     });
+};
+
+var noticia = function(req, res) {
+    var url = config.config.webServices.NoticiasPorId.url;
+    var params = config.config.webServices.NoticiasPorId.params;
+    console.log(url);
+    if (req.query.id) {
+        params[1].ID= req.query.id;
+    }
+    console.log(params);
+    requestApiData(url, params, function(data) {
+        res.render('noticia.html', {
+            noticia: data.RESPUESTA[0],
+            fechaConcurso: req.fechaConcurso
+        });
+        console.log(data);
+    });
+    console.log(req.query.id);
 };
 
 app.post('/', middleware, homepage);
@@ -128,6 +155,7 @@ app.get('/', middleware, homepageGet);
 app.get('/masleidas', middleware, masleidas);
 app.get('/masnoticias', middleware, masnoticias);
 app.get('/ganadores', middleware, ganadores);
+app.get('/noticia', middleware, noticia);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {

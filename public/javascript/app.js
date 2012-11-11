@@ -6,4 +6,7 @@ $(document).ready(function() {
         pagination: false,
         generatePagination: false
     });
+
+    $(".fancybox").fancybox({
+    });
 });

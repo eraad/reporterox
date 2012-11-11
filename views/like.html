@@ -42,6 +42,9 @@
            {% for fotoPortada in fotosPortada %}
            <div class="slide">
              <img src="{{ fotoPortada.Url  }}"/>
+             <div class="caption" style="bottom:0">
+               <p>{{ fotoPortada.Descripcion  }}</p>
+             </div>
            </div>
            {% endfor %}
       </div>

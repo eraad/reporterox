@@ -38,20 +38,23 @@
     </div>
     <div class="inside-container">
       <div class="inside-header">
-        <img src="/images/header-todaslasnoticias.png"/>
+        <img src="/images/header-masleidas.png"/>
       </div>
       <div class="fotogaleria">
         {% for item in masPopulares %}
         <div class="fotogaleria-item fotogaleria-item-dim">
-          <div class="fotogaleria-image fotogaleria-item-dim"><img width="200" height="150" src="{{ item.FotoPortada }}"/></div>
-          <div class="extra-red white-bg fotogaleria-padding"><strong>{{ item.Titulo }}</strong></div>
+          <div class="fotogaleria-image fotogaleria-item-dim">
+            <a rel="gallery" data-fancybox-type="iframe" class="fancybox" href="/noticia/?id={{ item.Id }}">
+              <img width="200" height="150" src="{{ item.FotoPortada }}"/>
+            </a>
+          </div>
+          <div class="extra-red white-bg"><strong>{{ item.Titulo }}</strong></div>
           <div class="white-bg fotogaleria-padding">{{ item.NoticiaTexto | truncate(75) }}</div>
-          <div>{{ item.Visitas  }}</div>
+          <div class="etiqueta-amarilla-noticias"><span class="extra-red">{{ item.Visitas  }} visitas<span></div>
         </div>
         {% endfor %}
-        <div style="clear:both"></div>
     </div>
-
+      <div style="clear:both"></div>
   </div>
 </div>
 {% endblock %}
