@@ -31,15 +31,15 @@
     <div id="navbar">
       <ul>
         <li><a href="/ganadores">GANADORES</a></li>
-        <li class="current"><a href="/masnoticias">MAS NOTICIAS</a></li>
-        <li><a href="/maspopulares">MAS POPULARES</a></li>
+        <li><a href="/masnoticias">MAS NOTICIAS</a></li>
+        <li class="current"><a href="/maspopulares">MAS POPULARES</a></li>
         <li><a href="/masleidas">MAS LEIDAS</a></li>
         <li><a href="/">INICIO</a></li>
       </ul>
     </div>
     <div class="inside-container">
       <div class="inside-header">
-        <img src="/images/header-todaslasnoticias.png"/>
+        <img src="/images/header-maspopulares.png"/>
       </div>
       <div class="fotogaleria">
         {% for item in masPopulares %}
@@ -54,8 +54,9 @@
           <div class="etiqueta-amarilla-noticias"><span class="extra-red">{{ item.Visitas  }} visitas<span></div>
         </div>
         {% endfor %}
+        <div style="clear:both"></div>
     </div>
-      <div style="clear:both"></div>
+
   </div>
 </div>
 {% endblock %}

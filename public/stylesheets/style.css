@@ -174,9 +174,9 @@ Componentes de la pagina
 #navbar ul li {
     float: right;
     padding: 5px 5px 5px 5px;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 6px 0px 6px;
     font-family: arial;
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: white;
 }
 

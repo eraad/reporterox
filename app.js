@@ -23,11 +23,13 @@ swig.init({
 // development only
 app.configure('development', function(){
     app.set('facebookSecret', config.config.facebookDev.secret);
+    console.log('dev');
 });
 
 // production only
 app.configure('production', function(){
     app.set('facebookSecret', config.config.facebook.secret);
+    console.log('prod');
 });
 
 app.use(express.bodyParser());
@@ -102,10 +104,21 @@ var homepageGet = function(req, res) {
 };
 
 var masleidas = function(req, res) {
+    var url = config.config.webServices.MasVisitadasSemana.url;
+    var params = config.config.webServices.MasVisitadasSemana.params;
+    requestApiData(url, params, function(data) {
+        res.render('masleidas.html', {
+            masPopulares: data.RESPUESTA,
+            fechaConcurso: req.fechaConcurso
+        });
+    });
+};
+
+var maspopulares = function(req, res) {
     var url = config.config.webServices.MasPopulares.url;
     var params = config.config.webServices.MasPopulares.params;
     requestApiData(url, params, function(data) {
-        res.render('masleidas.html', {
+        res.render('maspopulares.html', {
             masPopulares: data.RESPUESTA,
             fechaConcurso: req.fechaConcurso
         });
@@ -160,6 +173,7 @@ var appInstalled = function(req, res) {
 app.post('/', middleware, homepage);
 app.get('/', middleware, homepageGet);
 app.get('/masleidas', middleware, masleidas);
+app.get('/maspopulares', middleware, maspopulares);
 app.get('/masnoticias', middleware, masnoticias);
 app.get('/ganadores', middleware, ganadores);
 app.get('/noticia', middleware, noticia);
