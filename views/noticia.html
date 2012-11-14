@@ -4,7 +4,7 @@
 <div class="detalle-noticia">
   <div class="detalle-noticia-item detalle-noticia-foto">
     <img width="300" height="225" src="{{ noticia.FotoPortada }}"/>
-    <span>{{ noticia.Nombre }} {{ noticia.Apellidp }} </br>CI {{ noticia.Cedula }}</span>
+    <span>{{ noticia.Nombre }} {{ noticia.Apellido }} </br>CI {{ noticia.Cedula }}</span>
   </div>
   <div class="detalle-noticia-item detalle-noticia-data">
     <h3 class="extra-red">{{ noticia.Titulo }}</h3>
@@ -19,7 +19,8 @@
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style"
      addthis:url="http://reporterox.graficosnacionales.com/?noticia={{ noticia.Id }}"
      addthis:title="{{ noticia.Titulo }}"
-     addthis:description="{{ noticia.Descripcion  }}">
+     addthis:description="{{ noticia.Descripcion }}
+     tw:text="">
   <a class="addthis_button_preferred_1"></a>
   <a class="addthis_button_preferred_2"></a>
   <a class="addthis_button_preferred_3"></a>
