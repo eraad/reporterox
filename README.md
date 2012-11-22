@@ -1,5 +1,16 @@
 Aplicacion ReporteroX para Diario Extra.
 
+La aplicacion esta desarrollada usando Node.js con el framework Express.
+
+## Instalacion
+
+- Configurar claves de Facebook y URLs de los servicios web en config.js
+- Instalar Node.js utilizando NVM: https://github.com/creationix/nvm
+- Instalar NPM: curl http://npmjs.org/install.sh | sh
+- git clone https://github.com/eraad/reporterox
+- cd reporterox
+- NODE_ENV=[development|production] node app.js
+
 ## License
 
 (The MIT License)
